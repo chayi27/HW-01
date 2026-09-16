@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaoy — Personal Space & Live Clock</title>
+  <meta name="description" content="Personal space of Chaoy, Software Engineer & Creative Developer, featuring real-time live temporal dashboard, tech capabilities, and connect links.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Light Orbs -->
+  <div class="ambient-glow orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow orb-2" aria-hidden="true"></div>
+  <div class="ambient-glow orb-3" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Top Navigation Header -->
+    <header class="site-header" id="main-header">
+      <div class="brand">
+        <span class="brand-badge">CY</span>
+        <span class="brand-text">CHAOY<span class="dot">.</span>SPACE</span>
+      </div>
+
+      <div class="status-pill" id="live-status-pill">
+        <span class="status-dot"></span>
+        <span class="status-text" id="status-availability" contenteditable="true" title="Click to edit status">Available for innovative projects</span>
+        <svg class="edit-hint-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+
+      <div class="header-actions">
+        <!-- 12h / 24h Toggle -->
+        <button class="control-btn" id="time-format-toggle" title="Toggle 12h / 24h Clock Format" aria-label="Toggle clock format">
+          <span class="btn-label">24H</span>
+        </button>
+
+        <!-- Theme Selector Menu -->
+        <div class="theme-menu-container">
+          <button class="control-btn theme-btn" id="theme-menu-toggle" title="Switch Visual Theme" aria-label="Change theme">
+            <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+            </svg>
+            <span id="current-theme-name">Modern Glass</span>
+          </button>
+          
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-opt active" data-theme="dark">
+              <span class="theme-color-dot dark"></span> Modern Glass
+            </button>
+            <button class="theme-opt" data-theme="cyber">
+              <span class="theme-color-dot cyber"></span> Cyber Neon
+            </button>
+            <button class="theme-opt" data-theme="amber">
+              <span class="theme-color-dot amber"></span> Sunset Amber
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-grid">
+
+      <!-- Left Column: Personal Hero Profile Card -->
+      <section class="card profile-card" id="profile-section">
+        <div class="profile-header">
+          <div class="profile-identity">
+            <div class="identity-badge">
+              <span class="identity-dot"></span>
+              <span>Creator Profile</span>
+            </div>
+            <div class="name-edit-wrapper">
+              <h1 class="user-name" id="user-display-name" contenteditable="true" title="Click to edit name" spellcheck="false">Chaoy</h1>
+              <span class="edit-badge" title="Click to edit name">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </span>
+            </div>
+            <p class="user-title" id="user-display-title" contenteditable="true" title="Click to edit title" spellcheck="false">Software Engineer & Creative Developer</p>
+          </div>
+        </div>
+
+        <div class="profile-bio-box">
+          <p class="user-bio" id="user-display-bio" contenteditable="true" title="Click to edit bio" spellcheck="false">
+            Crafting high-performance web systems, responsive interactive interfaces, and intelligent software with meticulous craft and modern aesthetics.
+          </p>
+        </div>
+
+        <!-- Quick Metrics -->
+        <div class="quick-stats-grid">
+          <div class="stat-box">
+            <span class="stat-value">5+</span>
+            <span class="stat-label">Years Crafting</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Attention to Detail</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">Full</span>
+            <span class="stat-label">Stack & AI</span>
+          </div>
+        </div>
+
+        <!-- Contact CTA Bar -->
+        <div class="profile-cta-group">
+          <a href="mailto:chaoy.dev@example.com" class="btn btn-primary" id="email-contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Get in Touch</span>
+          </a>
+          <button class="btn btn-secondary" id="copy-email-btn" title="Copy email address">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copy-btn-text">Copy Email</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Column: Live Clock & Temporal Dashboard -->
+      <section class="card clock-card" id="clock-section">
+        
+        <!-- Live Greeting Banner -->
+        <div class="greeting-banner">
+          <div class="greeting-badge" id="greeting-badge">
+            <span class="greeting-icon" id="greeting-icon">☀️</span>
+            <span class="greeting-text" id="greeting-text">Good Morning, Chaoy</span>
+          </div>
+          <div class="timezone-chip" id="timezone-chip" title="Local detected timezone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span id="timezone-label">Local Time</span>
+          </div>
+        </div>
+
+        <!-- Giant Digital Clock Display -->
+        <div class="clock-display-wrapper" id="main-clock-display">
+          <div class="time-block">
+            <span class="time-digits" id="clock-hours">00</span>
+            <span class="time-label">HOURS</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-block">
+            <span class="time-digits" id="clock-minutes">00</span>
+            <span class="time-label">MINUTES</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-block">
+            <span class="time-digits" id="clock-seconds">00</span>
+            <span class="time-label">SECONDS</span>
+          </div>
+          <div class="time-period" id="clock-ampm">AM</div>
+        </div>
+
+        <!-- Calendar Date Information -->
+        <div class="date-display-row">
+          <div class="date-main">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span id="full-date-string">Loading current date...</span>
+          </div>
+          <button class="btn-micro" id="copy-timestamp-btn" title="Copy ISO-8601 Timestamp">
+            <span>Copy ISO</span>
+          </button>
+        </div>
+
+        <!-- Day Progress Tracker -->
+        <div class="day-progress-container">
+          <div class="progress-meta">
+            <span class="progress-title">Today's Progression</span>
+            <span class="progress-percentage" id="day-progress-percent">0.0%</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="day-progress-bar" style="width: 0%;">
+              <span class="progress-glow"></span>
+            </div>
+          </div>
+          <div class="progress-sub-meta">
+            <span id="day-progress-details">Calculating day progress...</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Span: Tech Stack & Skills -->
+      <section class="card skills-card" id="skills-section">
+        <div class="section-title-row">
+          <div class="title-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <h2>Tech Stack & Capabilities</h2>
+          </div>
+          <span class="badge-hint">Interactive Pills</span>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <span class="category-name">Core & Frontend</span>
+            <div class="skill-tags">
+              <span class="tag">JavaScript (ESNext)</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React & Next.js</span>
+              <span class="tag">Modern CSS / Glassmorphism</span>
+              <span class="tag">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="category-name">Backend & Systems</span>
+            <div class="skill-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">REST & GraphQL APIs</span>
+              <span class="tag">PostgreSQL / SQL</span>
+              <span class="tag">Docker & Cloud</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="category-name">Engineering & AI</span>
+            <div class="skill-tags">
+              <span class="tag">Agentic Workflows</span>
+              <span class="tag">LLM Integration</span>
+              <span class="tag">System Architecture</span>
+              <span class="tag">Performance Tuning</span>
+              <span class="tag">Clean Code & TDD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Span: Connect & Social Channels -->
+      <section class="card connect-card" id="connect-section">
+        <div class="section-title-row">
+          <div class="title-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <h2>Connect & Profiles</h2>
+          </div>
+          <span class="badge-hint">Let's collaborate</span>
+        </div>
+
+        <div class="connect-grid">
+          <a href="https://github.com/chayi27" target="_blank" rel="noopener noreferrer" class="connect-tile" id="link-github">
+            <div class="tile-icon github-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-name">GitHub</span>
+              <span class="tile-detail">@chayi27</span>
+            </div>
+            <span class="tile-arrow">↗</span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="connect-tile" id="link-linkedin">
+            <div class="tile-icon linkedin-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-name">LinkedIn</span>
+              <span class="tile-detail">Chaoy Professional</span>
+            </div>
+            <span class="tile-arrow">↗</span>
+          </a>
+
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="connect-tile" id="link-twitter">
+            <div class="tile-icon x-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-name">X (Twitter)</span>
+              <span class="tile-detail">@chaoy_dev</span>
+            </div>
+            <span class="tile-arrow">↗</span>
+          </a>
+
+          <a href="mailto:chaoy.dev@example.com" class="connect-tile" id="link-direct-email">
+            <div class="tile-icon mail-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-name">Email</span>
+              <span class="tile-detail">chaoy.dev@example.com</span>
+            </div>
+            <span class="tile-arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>© 2026 Chaoy • Crafted with modern web standards & real-time sync</p>
+        <div class="footer-meta">
+          <span class="pulse-indicator"></span>
+          <span>System Live • Updated locally every second</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
