@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="zh-TW" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaoy — Personal Space & Live Clock</title>
-  <meta name="description" content="Personal space of Chaoy, Software Engineer & Creative Developer, featuring real-time live temporal dashboard, tech capabilities, and connect links.">
+  <title>Chaoy — 個人主頁 & 即時時鐘 | HW-01</title>
+  <meta name="description" content="Chaoy 的個人專屬首頁，包含即時動態時鐘、作品專案展示、專業技能與個人檔案。">
   
   <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -32,19 +32,19 @@
 
       <div class="status-pill" id="live-status-pill">
         <span class="status-dot"></span>
-        <span class="status-text" id="status-availability" contenteditable="true" title="Click to edit status">Available for innovative projects</span>
+        <span class="status-text" id="status-availability" contenteditable="true" title="點擊即可直接編輯狀態">Available for innovative projects</span>
         <svg class="edit-hint-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
 
       <div class="header-actions">
         <!-- 12h / 24h Toggle -->
-        <button class="control-btn" id="time-format-toggle" title="Toggle 12h / 24h Clock Format" aria-label="Toggle clock format">
+        <button class="control-btn" id="time-format-toggle" title="切換 12 小時 / 24 小時時鐘制" aria-label="Toggle clock format">
           <span class="btn-label">24H</span>
         </button>
 
         <!-- Theme Selector Menu -->
         <div class="theme-menu-container">
-          <button class="control-btn theme-btn" id="theme-menu-toggle" title="Switch Visual Theme" aria-label="Change theme">
+          <button class="control-btn theme-btn" id="theme-menu-toggle" title="切換自訂風格色彩" aria-label="Change theme">
             <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="5"></circle>
               <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
@@ -70,27 +70,73 @@
     <!-- Main Content Grid -->
     <main class="dashboard-grid">
 
-      <!-- Left Column: Personal Hero Profile Card -->
+      <!-- ====================================================================
+           1. PROFILE SECTION (👤 1. Profile: 姓名、Avatar、科系/專長、簡短自介)
+           ==================================================================== -->
       <section class="card profile-card" id="profile-section">
         <div class="profile-header">
+          <!-- Stylized Avatar (滿足: 個人照片或 Avatar) -->
+          <div class="avatar-wrapper" id="profile-avatar" title="Chaoy Avatar">
+            <div class="avatar-svg-container">
+              <svg class="avatar-illustration" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" fill="url(#avatar-bg-grad)" stroke="var(--border-glass-bright)" stroke-width="2"/>
+                <!-- Avatar Stylized Developer Silhouette -->
+                <circle cx="50" cy="38" r="18" fill="url(#avatar-head-grad)"/>
+                <path d="M22 84C22 66 36 57 50 57C64 57 78 66 78 84" fill="url(#avatar-body-grad)"/>
+                <!-- Tech Glasses -->
+                <rect x="36" y="34" width="11" height="8" rx="2" stroke="#ffffff" stroke-width="2" fill="rgba(6, 182, 212, 0.45)"/>
+                <rect x="53" y="34" width="11" height="8" rx="2" stroke="#ffffff" stroke-width="2" fill="rgba(6, 182, 212, 0.45)"/>
+                <line x1="47" y1="38" x2="53" y2="38" stroke="#ffffff" stroke-width="2"/>
+                <defs>
+                  <linearGradient id="avatar-bg-grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1e1b4b"/>
+                    <stop offset="1" stop-color="#0f172a"/>
+                  </linearGradient>
+                  <linearGradient id="avatar-head-grad" x1="32" y1="20" x2="68" y2="56" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#c084fc"/>
+                    <stop offset="1" stop-color="#818cf8"/>
+                  </linearGradient>
+                  <linearGradient id="avatar-body-grad" x1="22" y1="57" x2="78" y2="84" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6366f1"/>
+                    <stop offset="1" stop-color="#06b6d4"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="avatar-indicator" title="Active now"></span>
+          </div>
+
           <div class="profile-identity">
             <div class="identity-badge">
               <span class="identity-dot"></span>
-              <span>Creator Profile</span>
+              <span>資訊工程學系 • CSIE</span>
             </div>
             <div class="name-edit-wrapper">
-              <h1 class="user-name" id="user-display-name" contenteditable="true" title="Click to edit name" spellcheck="false">Chaoy</h1>
-              <span class="edit-badge" title="Click to edit name">
+              <h1 class="user-name" id="user-display-name" contenteditable="true" title="點擊可編輯姓名" spellcheck="false">Chaoy</h1>
+              <span class="edit-badge" title="點擊可編輯姓名">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </span>
             </div>
-            <p class="user-title" id="user-display-title" contenteditable="true" title="Click to edit title" spellcheck="false">Software Engineer & Creative Developer</p>
+            <p class="user-title" id="user-display-title" contenteditable="true" title="點擊可編輯職稱" spellcheck="false">Software Engineer & Creative Developer</p>
           </div>
         </div>
 
+        <!-- 科系與專長 (Department & Specialty) -->
+        <div class="profile-meta-pills">
+          <div class="meta-pill">
+            <span class="meta-pill-label">科系</span>
+            <span class="meta-pill-value">資訊工程學系 (CSIE)</span>
+          </div>
+          <div class="meta-pill">
+            <span class="meta-pill-label">專長</span>
+            <span class="meta-pill-value">Web 全端開發 • Machine Learning • Python</span>
+          </div>
+        </div>
+
+        <!-- 簡短自我介紹 (Short Bio) -->
         <div class="profile-bio-box">
-          <p class="user-bio" id="user-display-bio" contenteditable="true" title="Click to edit bio" spellcheck="false">
-            Crafting high-performance web systems, responsive interactive interfaces, and intelligent software with meticulous craft and modern aesthetics.
+          <p class="user-bio" id="user-display-bio" contenteditable="true" title="點擊可直接編輯自介" spellcheck="false">
+            熱愛探索軟體技術與前端互動體驗，專注於 Web 全端開發、AI 模型應用與系統效能最佳化。持續學習最新科技，致力於打造流暢直覺的使用者介面與現代化數位工具。
           </p>
         </div>
 
@@ -114,16 +160,18 @@
         <div class="profile-cta-group">
           <a href="mailto:chaoy.dev@example.com" class="btn btn-primary" id="email-contact-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>Get in Touch</span>
+            <span>聯絡我 Get in Touch</span>
           </a>
-          <button class="btn btn-secondary" id="copy-email-btn" title="Copy email address">
+          <button class="btn btn-secondary" id="copy-email-btn" title="複製 Email 地址">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span id="copy-btn-text">Copy Email</span>
+            <span id="copy-btn-text">複製 Email</span>
           </button>
         </div>
       </section>
 
-      <!-- Right Column: Live Clock & Temporal Dashboard -->
+      <!-- ====================================================================
+           4. LIVE CLOCK SECTION (🕐 4. Live Clock: HH : MM : SS 即時自動更新)
+           ==================================================================== -->
       <section class="card clock-card" id="clock-section">
         
         <!-- Live Greeting Banner -->
@@ -132,13 +180,13 @@
             <span class="greeting-icon" id="greeting-icon">☀️</span>
             <span class="greeting-text" id="greeting-text">Good Morning, Chaoy</span>
           </div>
-          <div class="timezone-chip" id="timezone-chip" title="Local detected timezone">
+          <div class="timezone-chip" id="timezone-chip" title="自動偵測之本地時區">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
             <span id="timezone-label">Local Time</span>
           </div>
         </div>
 
-        <!-- Giant Digital Clock Display -->
+        <!-- Giant Digital Clock Display (HH : MM : SS) -->
         <div class="clock-display-wrapper" id="main-clock-display">
           <div class="time-block">
             <span class="time-digits" id="clock-hours">00</span>
@@ -161,9 +209,9 @@
         <div class="date-display-row">
           <div class="date-main">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span id="full-date-string">Loading current date...</span>
+            <span id="full-date-string">載入目前日期中...</span>
           </div>
-          <button class="btn-micro" id="copy-timestamp-btn" title="Copy ISO-8601 Timestamp">
+          <button class="btn-micro" id="copy-timestamp-btn" title="複製 ISO-8601 時間戳記">
             <span>Copy ISO</span>
           </button>
         </div>
@@ -171,7 +219,7 @@
         <!-- Day Progress Tracker -->
         <div class="day-progress-container">
           <div class="progress-meta">
-            <span class="progress-title">Today's Progression</span>
+            <span class="progress-title">今日時間流逝進度 Today's Journey</span>
             <span class="progress-percentage" id="day-progress-percent">0.0%</span>
           </div>
           <div class="progress-bar-track">
@@ -180,66 +228,164 @@
             </div>
           </div>
           <div class="progress-sub-meta">
-            <span id="day-progress-details">Calculating day progress...</span>
+            <span id="day-progress-details">計算中...</span>
           </div>
         </div>
 
       </section>
 
-      <!-- Bottom Span: Tech Stack & Skills -->
+      <!-- ====================================================================
+           3. PROJECTS SECTION (🚀 3. Projects: 至少 1 個作品/專案與預計完成專案)
+           ==================================================================== -->
+      <section class="card projects-card" id="projects-section">
+        <div class="section-title-row">
+          <div class="title-with-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 9v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            <h2>Featured Projects • 作品與專案</h2>
+          </div>
+          <span class="badge-hint">作品展示 & 預計完成專案</span>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: HW-01 Personal Space & Live Clock -->
+          <div class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-live">
+                <span class="badge-dot"></span>
+                <span>Live Project • 已上線</span>
+              </div>
+              <div class="project-quick-links">
+                <a href="https://github.com/chayi27/HW-01" target="_blank" rel="noopener noreferrer" class="icon-link" title="GitHub Repository">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://chayi27.github.io/HW-01/" target="_blank" rel="noopener noreferrer" class="icon-link" title="Live Demo">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <h3 class="project-title">HW-01: Personal Space & Live Clock</h3>
+            <p class="project-desc">
+              響應式個人主頁與即時時鐘儀表板。具備自定義深色毛玻璃美學（Glassmorphism）、微動畫背景、即時自動更新時鐘（HH : MM : SS）、本地時區偵測、日進度計算，以及即時編輯與三種主題切換功能。
+            </p>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3 (Glassmorphism)</span>
+              <span class="tech-tag">JavaScript (Vanilla)</span>
+              <span class="tech-tag">GitHub Pages</span>
+            </div>
+
+            <div class="project-actions-row">
+              <a href="https://chayi27.github.io/HW-01/" target="_blank" rel="noopener noreferrer" class="btn-project primary">
+                <span>線上展示 Live Demo</span>
+                <span class="arrow">↗</span>
+              </a>
+              <a href="https://github.com/chayi27/HW-01" target="_blank" rel="noopener noreferrer" class="btn-project secondary">
+                <span>GitHub 原始碼</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2: AI Agentic Task Orchestrator (這學期預計完成專案) -->
+          <div class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-planning">
+                <span class="badge-dot pulse"></span>
+                <span>本學期預計完成專案 • Upcoming</span>
+              </div>
+              <div class="project-quick-links">
+                <a href="https://github.com/chayi27" target="_blank" rel="noopener noreferrer" class="icon-link" title="GitHub Profile">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <h3 class="project-title">AI Agentic Workflow Orchestrator</h3>
+            <p class="project-desc">
+              結合大型語言模型（LLMs）與多工具呼叫代理的智慧自動化系統。支援自然語言任務規劃、自動化資料爬取、智能程式碼重構與定時排程執行，預計於這學期完成核心架構並整合 Web 操作介面。
+            </p>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag highlight">Python</span>
+              <span class="tech-tag highlight">Machine Learning / AI</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+
+            <div class="project-actions-row">
+              <a href="https://github.com/chayi27" target="_blank" rel="noopener noreferrer" class="btn-project secondary">
+                <span>追蹤開發進度 GitHub</span>
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. SKILLS SECTION (🛠 2. Skills: Python, C/C++, ML, AI, IoT, Web, etc.)
+           ==================================================================== -->
       <section class="card skills-card" id="skills-section">
         <div class="section-title-row">
           <div class="title-with-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <h2>Tech Stack & Capabilities</h2>
+            <h2>Skills & Technologies • 專業技能</h2>
           </div>
-          <span class="badge-hint">Interactive Pills</span>
+          <span class="badge-hint">核心能力技能庫</span>
         </div>
 
         <div class="skills-grid">
+          <!-- Category 1: 程式語言與網頁開發 -->
           <div class="skill-category">
-            <span class="category-name">Core & Frontend</span>
+            <span class="category-name">Core Languages & Web</span>
             <div class="skill-tags">
+              <span class="tag tag-highlight">Python</span>
+              <span class="tag tag-highlight">C / C++</span>
+              <span class="tag tag-highlight">Web Development</span>
               <span class="tag">JavaScript (ESNext)</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">React & Next.js</span>
-              <span class="tag">Modern CSS / Glassmorphism</span>
-              <span class="tag">Tailwind CSS</span>
+              <span class="tag">TypeScript & React</span>
+              <span class="tag">CSS3 / Glassmorphism</span>
             </div>
           </div>
 
+          <!-- Category 2: AI 與資料分析 -->
           <div class="skill-category">
-            <span class="category-name">Backend & Systems</span>
+            <span class="category-name">AI & Data Analysis</span>
             <div class="skill-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Python</span>
-              <span class="tag">REST & GraphQL APIs</span>
-              <span class="tag">PostgreSQL / SQL</span>
-              <span class="tag">Docker & Cloud</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <span class="category-name">Engineering & AI</span>
-            <div class="skill-tags">
+              <span class="tag tag-highlight">Machine Learning</span>
+              <span class="tag tag-highlight">AI & LLMs</span>
+              <span class="tag tag-highlight">Data Analysis</span>
+              <span class="tag">NumPy & Pandas</span>
               <span class="tag">Agentic Workflows</span>
-              <span class="tag">LLM Integration</span>
-              <span class="tag">System Architecture</span>
-              <span class="tag">Performance Tuning</span>
-              <span class="tag">Clean Code & TDD</span>
+            </div>
+          </div>
+
+          <!-- Category 3: 系統與物聯網 -->
+          <div class="skill-category">
+            <span class="category-name">Systems & Hardware</span>
+            <div class="skill-tags">
+              <span class="tag tag-highlight">IoT (物聯網)</span>
+              <span class="tag">Docker & Cloud</span>
+              <span class="tag">Git & GitHub Actions</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">Linux / POSIX</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Bottom Span: Connect & Social Channels -->
+      <!-- ====================================================================
+           CONNECT & SOCIAL CHANNELS
+           ==================================================================== -->
       <section class="card connect-card" id="connect-section">
         <div class="section-title-row">
           <div class="title-with-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <h2>Connect & Profiles</h2>
+            <h2>Connect & Profiles • 社交與連結</h2>
           </div>
-          <span class="badge-hint">Let's collaborate</span>
+          <span class="badge-hint">歡迎交流與合作</span>
         </div>
 
         <div class="connect-grid">
@@ -294,10 +440,10 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
-        <p>© 2026 Chaoy • Crafted with modern web standards & real-time sync</p>
+        <p>© 2026 Chaoy • 資訊工程學系 • HW-01 Personal Space & Live Clock</p>
         <div class="footer-meta">
           <span class="pulse-indicator"></span>
-          <span>System Live • Updated locally every second</span>
+          <span>System Live • 本地端即時每秒更新</span>
         </div>
       </div>
     </footer>

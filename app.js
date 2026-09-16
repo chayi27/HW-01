@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // State & Persistence
   // --------------------------------------------------------------------------
   const STORAGE_KEYS = {
-    THEME: 'chaoy_theme_pref',
-    TIME_FORMAT: 'chaoy_time_format',
-    NAME: 'chaoy_user_name',
-    TITLE: 'chaoy_user_title',
-    BIO: 'chaoy_user_bio',
-    STATUS: 'chaoy_user_status'
+    THEME: 'chaoy_hw1_theme',
+    TIME_FORMAT: 'chaoy_hw1_time_format',
+    NAME: 'chaoy_hw1_user_name',
+    TITLE: 'chaoy_hw1_user_title',
+    BIO: 'chaoy_hw1_user_bio',
+    STATUS: 'chaoy_hw1_user_status'
   };
 
   let is24Hour = (localStorage.getItem(STORAGE_KEYS.TIME_FORMAT) || '24h') === '24h';
