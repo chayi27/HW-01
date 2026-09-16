@@ -4,6 +4,8 @@ A sleek personal space featuring real-time clock synchronization, time-of-day gr
 
 🔗 **Live Demo**: [https://chayi27.github.io/HW-01/](https://chayi27.github.io/HW-01/)
 
+![HW-01 Personal Space Preview](screenshot.png)
+
 ## ✨ Features
 
 - ⏱️ **Real-Time Clock Dashboard**: Live hours, minutes, and seconds with tabular numbers.
